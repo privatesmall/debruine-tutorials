@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 What’s wrong with aggregating data? | Tutorials</title>
+  <meta name="description" content="Tutorial materials" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 What’s wrong with aggregating data? | Tutorials" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial materials" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 What’s wrong with aggregating data? | Tutorials" />
+  
+  <meta name="twitter:description" content="Tutorial materials" />
+  
+
+<meta name="author" content="Lisa DeBruine" />
+
+
+<meta name="date" content="2019-12-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="packages.html"/>
+<link rel="next" href="sim-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>1</b> R package with unit tests</a><ul>
+<li class="chapter" data-level="1.1" data-path="packages.html"><a href="packages.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="packages.html"><a href="packages.html#setting-up"><i class="fa fa-check"></i><b>1.2</b> Setting up</a></li>
+<li class="chapter" data-level="1.3" data-path="packages.html"><a href="packages.html#create-your-r-package"><i class="fa fa-check"></i><b>1.3</b> Create your R package</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="packages.html"><a href="packages.html#edit-the-description-file"><i class="fa fa-check"></i><b>1.3.1</b> Edit the DESCRIPTION file</a></li>
+<li class="chapter" data-level="1.3.2" data-path="packages.html"><a href="packages.html#create-a-license"><i class="fa fa-check"></i><b>1.3.2</b> Create a LICENSE</a></li>
+<li class="chapter" data-level="1.3.3" data-path="packages.html"><a href="packages.html#create-a-readme"><i class="fa fa-check"></i><b>1.3.3</b> Create a README</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="packages.html"><a href="packages.html#creating-a-function"><i class="fa fa-check"></i><b>1.4</b> Creating a function</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="packages.html"><a href="packages.html#template-function"><i class="fa fa-check"></i><b>1.4.1</b> Template function</a></li>
+<li class="chapter" data-level="1.4.2" data-path="packages.html"><a href="packages.html#edit-the-function"><i class="fa fa-check"></i><b>1.4.2</b> Edit the function</a></li>
+<li class="chapter" data-level="1.4.3" data-path="packages.html"><a href="packages.html#documentation"><i class="fa fa-check"></i><b>1.4.3</b> Documentation</a></li>
+<li class="chapter" data-level="1.4.4" data-path="packages.html"><a href="packages.html#imports"><i class="fa fa-check"></i><b>1.4.4</b> Imports</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="packages.html"><a href="packages.html#build-your-package"><i class="fa fa-check"></i><b>1.5</b> Build your package</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="packages.html"><a href="packages.html#check"><i class="fa fa-check"></i><b>1.5.1</b> Check</a></li>
+<li class="chapter" data-level="1.5.2" data-path="packages.html"><a href="packages.html#build"><i class="fa fa-check"></i><b>1.5.2</b> Build</a></li>
+<li class="chapter" data-level="1.5.3" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>1.5.3</b> Install</a></li>
+<li class="chapter" data-level="1.5.4" data-path="packages.html"><a href="packages.html#test"><i class="fa fa-check"></i><b>1.5.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="packages.html"><a href="packages.html#error-checking"><i class="fa fa-check"></i><b>1.6</b> Error checking</a></li>
+<li class="chapter" data-level="1.7" data-path="packages.html"><a href="packages.html#unit-tests"><i class="fa fa-check"></i><b>1.7</b> Unit tests</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="packages.html"><a href="packages.html#setup"><i class="fa fa-check"></i><b>1.7.1</b> Setup</a></li>
+<li class="chapter" data-level="1.7.2" data-path="packages.html"><a href="packages.html#new-unit-tests"><i class="fa fa-check"></i><b>1.7.2</b> New unit tests</a></li>
+<li class="chapter" data-level="1.7.3" data-path="packages.html"><a href="packages.html#run-all-tests"><i class="fa fa-check"></i><b>1.7.3</b> Run all tests</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="packages.html"><a href="packages.html#documentation-1"><i class="fa fa-check"></i><b>1.8</b> Documentation</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="packages.html"><a href="packages.html#vignettes"><i class="fa fa-check"></i><b>1.8.1</b> Vignettes</a></li>
+<li class="chapter" data-level="1.8.2" data-path="packages.html"><a href="packages.html#pkgdown"><i class="fa fa-check"></i><b>1.8.2</b> pkgdown</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="packages.html"><a href="packages.html#share-your-package"><i class="fa fa-check"></i><b>1.9</b> Share your package</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="packages.html"><a href="packages.html#git-on-rstudio"><i class="fa fa-check"></i><b>1.9.1</b> Git on RStudio</a></li>
+<li class="chapter" data-level="1.9.2" data-path="packages.html"><a href="packages.html#set-up-git-for-this-project"><i class="fa fa-check"></i><b>1.9.2</b> Set up git for this project</a></li>
+<li class="chapter" data-level="1.9.3" data-path="packages.html"><a href="packages.html#github-access-token"><i class="fa fa-check"></i><b>1.9.3</b> GitHub access token</a></li>
+<li class="chapter" data-level="1.9.4" data-path="packages.html"><a href="packages.html#make-a-new-github-repository"><i class="fa fa-check"></i><b>1.9.4</b> Make a new GitHub repository</a></li>
+<li class="chapter" data-level="1.9.5" data-path="packages.html"><a href="packages.html#set-up-website"><i class="fa fa-check"></i><b>1.9.5</b> Set up website</a></li>
+<li class="chapter" data-level="1.9.6" data-path="packages.html"><a href="packages.html#install-your-package-from-github"><i class="fa fa-check"></i><b>1.9.6</b> Install your package from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="packages.html"><a href="packages.html#further-resources"><i class="fa fa-check"></i><b>1.10</b> Further resources</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="packages.html"><a href="packages.html#workflow"><i class="fa fa-check"></i><b>1.10.1</b> Workflow</a></li>
+<li class="chapter" data-level="1.10.2" data-path="packages.html"><a href="packages.html#the-full-report_p-function"><i class="fa fa-check"></i><b>1.10.2</b> The full <code>report_p</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="packages.html"><a href="packages.html#glossary"><i class="fa fa-check"></i><b>1.11</b> Glossary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="aggregate.html"><a href="aggregate.html"><i class="fa fa-check"></i><b>2</b> What’s wrong with aggregating data?</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="aggregate.html"><a href="aggregate.html#measurement-with-error"><i class="fa fa-check"></i><b>2.0.1</b> Measurement with Error</a></li>
+<li class="chapter" data-level="2.0.2" data-path="aggregate.html"><a href="aggregate.html#aggregating-by-stimuli"><i class="fa fa-check"></i><b>2.0.2</b> Aggregating by stimuli</a></li>
+<li class="chapter" data-level="2.0.3" data-path="aggregate.html"><a href="aggregate.html#aggregating-by-raters"><i class="fa fa-check"></i><b>2.0.3</b> Aggregating by raters</a></li>
+<li class="chapter" data-level="2.0.4" data-path="aggregate.html"><a href="aggregate.html#mixed-effect-model"><i class="fa fa-check"></i><b>2.0.4</b> Mixed Effect Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="sim-data.html"><a href="sim-data.html"><i class="fa fa-check"></i><b>3</b> Simulating Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sim-data.html"><a href="sim-data.html#independent-samples"><i class="fa fa-check"></i><b>3.1</b> Independent samples</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="sim-data.html"><a href="sim-data.html#ind-params"><i class="fa fa-check"></i><b>3.1.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.1.2" data-path="sim-data.html"><a href="sim-data.html#scores"><i class="fa fa-check"></i><b>3.1.2</b> Scores</a></li>
+<li class="chapter" data-level="3.1.3" data-path="sim-data.html"><a href="sim-data.html#check-your-data"><i class="fa fa-check"></i><b>3.1.3</b> Check your data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="sim-data.html"><a href="sim-data.html#analysis"><i class="fa fa-check"></i><b>3.1.4</b> Analysis</a></li>
+<li class="chapter" data-level="3.1.5" data-path="sim-data.html"><a href="sim-data.html#function"><i class="fa fa-check"></i><b>3.1.5</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="sim-data.html"><a href="sim-data.html#paired-samples"><i class="fa fa-check"></i><b>3.2</b> Paired samples</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sim-data.html"><a href="sim-data.html#paired-params"><i class="fa fa-check"></i><b>3.2.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sim-data.html"><a href="sim-data.html#correlated-scores"><i class="fa fa-check"></i><b>3.2.2</b> Correlated Scores</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sim-data.html"><a href="sim-data.html#check-your-data-1"><i class="fa fa-check"></i><b>3.2.3</b> Check your data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="sim-data.html"><a href="sim-data.html#analysis-1"><i class="fa fa-check"></i><b>3.2.4</b> Analysis</a></li>
+<li class="chapter" data-level="3.2.5" data-path="sim-data.html"><a href="sim-data.html#function-1"><i class="fa fa-check"></i><b>3.2.5</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sim-data.html"><a href="sim-data.html#intercept-model"><i class="fa fa-check"></i><b>3.3</b> Intercept model</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sim-data.html"><a href="sim-data.html#parameters"><i class="fa fa-check"></i><b>3.3.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sim-data.html"><a href="sim-data.html#subject-intercepts"><i class="fa fa-check"></i><b>3.3.2</b> Subject intercepts</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sim-data.html"><a href="sim-data.html#observations"><i class="fa fa-check"></i><b>3.3.3</b> Observations</a></li>
+<li class="chapter" data-level="3.3.4" data-path="sim-data.html"><a href="sim-data.html#calculate-the-score"><i class="fa fa-check"></i><b>3.3.4</b> Calculate the score</a></li>
+<li class="chapter" data-level="3.3.5" data-path="sim-data.html"><a href="sim-data.html#analyses"><i class="fa fa-check"></i><b>3.3.5</b> Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sim-data.html"><a href="sim-data.html#functions"><i class="fa fa-check"></i><b>3.4</b> Functions</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sim-data.html"><a href="sim-data.html#distribution-to-intercept-specification"><i class="fa fa-check"></i><b>3.4.1</b> Distribution to intercept specification</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sim-data.html"><a href="sim-data.html#intercept-to-distribution-specification"><i class="fa fa-check"></i><b>3.4.2</b> Intercept to distribution specification</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sim-lmer.html"><a href="sim-lmer.html"><i class="fa fa-check"></i><b>4</b> Simulating Mixed Effects</a><ul>
+<li class="chapter" data-level="4.1" data-path="sim-lmer.html"><a href="sim-lmer.html#setup-1"><i class="fa fa-check"></i><b>4.1</b> Setup</a></li>
+<li class="chapter" data-level="4.2" data-path="sim-lmer.html"><a href="sim-lmer.html#random-intercepts"><i class="fa fa-check"></i><b>4.2</b> Random intercepts</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-subjects"><i class="fa fa-check"></i><b>4.2.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.2.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-stimuli"><i class="fa fa-check"></i><b>4.2.2</b> Stimuli</a></li>
+<li class="chapter" data-level="4.2.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-trials"><i class="fa fa-check"></i><b>4.2.3</b> Trials</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-dv"><i class="fa fa-check"></i><b>4.3</b> Calculate DV</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="sim-lmer.html"><a href="sim-lmer.html#fixed-effects"><i class="fa fa-check"></i><b>4.3.1</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.3.2" data-path="sim-lmer.html"><a href="sim-lmer.html#interactions"><i class="fa fa-check"></i><b>4.3.2</b> Interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-analysis"><i class="fa fa-check"></i><b>4.4</b> Analysis</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-sense-checks"><i class="fa fa-check"></i><b>4.4.1</b> Sense checks</a></li>
+<li class="chapter" data-level="4.4.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-ranef"><i class="fa fa-check"></i><b>4.4.2</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-function"><i class="fa fa-check"></i><b>4.5</b> Function</a></li>
+<li class="chapter" data-level="4.6" data-path="sim-lmer.html"><a href="sim-lmer.html#random-slopes"><i class="fa fa-check"></i><b>4.6</b> Random slopes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-subjects"><i class="fa fa-check"></i><b>4.6.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.6.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-stimuli"><i class="fa fa-check"></i><b>4.6.2</b> Stimuli</a></li>
+<li class="chapter" data-level="4.6.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-trials"><i class="fa fa-check"></i><b>4.6.3</b> Trials</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-dv"><i class="fa fa-check"></i><b>4.7</b> Calculate DV</a></li>
+<li class="chapter" data-level="4.8" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-analysis"><i class="fa fa-check"></i><b>4.8</b> Analysis</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-sense-checks"><i class="fa fa-check"></i><b>4.8.1</b> Sense checks</a></li>
+<li class="chapter" data-level="4.8.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-ranef"><i class="fa fa-check"></i><b>4.8.2</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-function"><i class="fa fa-check"></i><b>4.9</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="webpages.html"><a href="webpages.html"><i class="fa fa-check"></i><b>5</b> Webpages</a><ul>
+<li class="chapter" data-level="5.1" data-path="webpages.html"><a href="webpages.html#learning-objectives-1"><i class="fa fa-check"></i><b>5.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="webpages.html"><a href="webpages.html#webpage-create"><i class="fa fa-check"></i><b>5.2</b> Create a webpage</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="webpages.html"><a href="webpages.html#create-a-project"><i class="fa fa-check"></i><b>5.2.1</b> Create a project</a></li>
+<li class="chapter" data-level="5.2.2" data-path="webpages.html"><a href="webpages.html#site-header"><i class="fa fa-check"></i><b>5.2.2</b> Site header</a></li>
+<li class="chapter" data-level="5.2.3" data-path="webpages.html"><a href="webpages.html#site-script-only-for-gitlab"><i class="fa fa-check"></i><b>5.2.3</b> Site script (only for GitLab)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="webpages.html"><a href="webpages.html#main-page"><i class="fa fa-check"></i><b>5.2.4</b> Main page</a></li>
+<li class="chapter" data-level="5.2.5" data-path="webpages.html"><a href="webpages.html#render-the-site"><i class="fa fa-check"></i><b>5.2.5</b> Render the site</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="webpages.html"><a href="webpages.html#webpage-content"><i class="fa fa-check"></i><b>5.3</b> Add content</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="webpages.html"><a href="webpages.html#headings-and-paragraphs"><i class="fa fa-check"></i><b>5.3.1</b> Headings and paragraphs</a></li>
+<li class="chapter" data-level="5.3.2" data-path="webpages.html"><a href="webpages.html#links"><i class="fa fa-check"></i><b>5.3.2</b> Links</a></li>
+<li class="chapter" data-level="5.3.3" data-path="webpages.html"><a href="webpages.html#lists"><i class="fa fa-check"></i><b>5.3.3</b> Lists</a></li>
+<li class="chapter" data-level="5.3.4" data-path="webpages.html"><a href="webpages.html#images"><i class="fa fa-check"></i><b>5.3.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="webpages.html"><a href="webpages.html#webpage-pages"><i class="fa fa-check"></i><b>5.4</b> Add pages</a></li>
+<li class="chapter" data-level="5.5" data-path="webpages.html"><a href="webpages.html#webpage-styles"><i class="fa fa-check"></i><b>5.5</b> Styles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="webpages.html"><a href="webpages.html#change-the-theme"><i class="fa fa-check"></i><b>5.5.1</b> Change the theme</a></li>
+<li class="chapter" data-level="5.5.2" data-path="webpages.html"><a href="webpages.html#add-custom-styles"><i class="fa fa-check"></i><b>5.5.2</b> Add custom styles</a></li>
+<li class="chapter" data-level="5.5.3" data-path="webpages.html"><a href="webpages.html#change-global-fonts-and-colours"><i class="fa fa-check"></i><b>5.5.3</b> Change global fonts and colours</a></li>
+<li class="chapter" data-level="5.5.4" data-path="webpages.html"><a href="webpages.html#change-certain-elements"><i class="fa fa-check"></i><b>5.5.4</b> Change certain elements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="webpages.html"><a href="webpages.html#webpage-online"><i class="fa fa-check"></i><b>5.6</b> Put your webpage online</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="webpages.html"><a href="webpages.html#save-this-version-with-git"><i class="fa fa-check"></i><b>5.6.1</b> Save this version with git</a></li>
+<li class="chapter" data-level="5.6.2" data-path="webpages.html"><a href="webpages.html#github"><i class="fa fa-check"></i><b>5.6.2</b> GitHub</a></li>
+<li class="chapter" data-level="5.6.3" data-path="webpages.html"><a href="webpages.html#gitlab"><i class="fa fa-check"></i><b>5.6.3</b> GitLab</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
+<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
+<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
+<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
+<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>C</b> Pipes</a></li>
+<li class="chapter" data-level="D" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>D</b> Symbols</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aggregate" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> What’s wrong with aggregating data?</h1>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">library</span>(lmerTest)</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="kw">library</span>(faux) <span class="co">#devtools::install_github(&quot;debruine/faux&quot;)</span></a>
+<a class="sourceLine" id="cb36-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">90210</span>)</a></code></pre></div>
+<p>Imagine you want to find out if Armenian women born on an even-numbered day are taller than women born on an odd-numbered day. (I’ve chosen Armenian women because they’re the first row in <a href="https://doi.org/10.1371/journal.pone.0018962">this paper</a>.)</p>
+<p>First, let’s simulate a group of 20 women born on even-numbered days and 20 women born on odd-numbered days.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">stim_n &lt;-<span class="st"> </span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="co"># height stats from https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0018962</span></a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">height_m &lt;-<span class="st"> </span><span class="fl">158.1</span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4">height_sd &lt;-<span class="st"> </span><span class="fl">5.7</span></a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb37-6" data-line-number="6">stim &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb37-7" data-line-number="7">  <span class="dt">stim_id =</span> <span class="dv">1</span><span class="op">:</span>(stim_n<span class="op">*</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb37-8" data-line-number="8">  <span class="dt">birthday =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;odd&quot;</span>, <span class="st">&quot;even&quot;</span>), stim_n),</a>
+<a class="sourceLine" id="cb37-9" data-line-number="9">  <span class="dt">height =</span> <span class="kw">rnorm</span>(stim_n<span class="op">*</span><span class="dv">2</span>, height_m, height_sd)</a>
+<a class="sourceLine" id="cb37-10" data-line-number="10">)</a></code></pre></div>
+<p>You can alternatively simulate this using a function from the <a href="https://debruine.github.io/faux/">faux</a> package I’m developing.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">stim &lt;-<span class="st"> </span><span class="kw">sim_design</span>(<span class="dt">between =</span> <span class="kw">list</span>(<span class="dt">birthday =</span> <span class="kw">c</span>(<span class="st">&quot;odd&quot;</span>, <span class="st">&quot;even&quot;</span>)),</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">                   <span class="dt">n =</span> stim_n, <span class="dt">mu =</span> height_m, <span class="dt">sd =</span> height_sd, </a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">                   <span class="dt">id =</span> <span class="st">&quot;stim_id&quot;</span>, <span class="dt">dv =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">seed =</span> <span class="dv">90210</span>, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="02_aggregate_files/figure-html/unnamed-chunk-4-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 2.1: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>Obviously, the oddness of date of birth is not going to have any effect on women’s actual height and a two-sample t-test confirms this. However, there is a small difference between the means of the groups just due to chance (2.73 cm).</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">t.test</span>(stim<span class="op">$</span>height <span class="op">~</span><span class="st"> </span>stim<span class="op">$</span>birthday)</a></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  stim$height by stim$birthday
+## t = 1.4959, df = 31.748, p-value = 0.1446
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.9883711  6.4472358
+## sample estimates:
+##  mean in group odd mean in group even 
+##           157.7036           154.9742</code></pre>
+<div id="measurement-with-error" class="section level3">
+<h3><span class="header-section-number">2.0.1</span> Measurement with Error</h3>
+<p>But what if we don’t measure height from each women once, but have a few different raters estimate it? The raters will each have their own bias, systematically overestimating or underestimating height on average. Let’s simulate 20 raters who have biases with an SD of 2 cm.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">rater_n &lt;-<span class="st"> </span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">rater_bias_sd &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">rater &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">  <span class="dt">rater_id =</span> <span class="dv">1</span><span class="op">:</span>rater_n,</a>
+<a class="sourceLine" id="cb41-6" data-line-number="6">  <span class="dt">rater_bias =</span> <span class="kw">rnorm</span>(rater_n, <span class="dv">0</span>, rater_bias_sd)</a>
+<a class="sourceLine" id="cb41-7" data-line-number="7">)</a></code></pre></div>
+<p>Again, you can also set up the simulated raters using faux’s <code>sim_design()</code> function.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">rater &lt;-<span class="st"> </span><span class="kw">sim_design</span>(<span class="dt">n =</span> rater_n, <span class="dt">sd =</span> rater_bias_sd, </a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">                    <span class="dt">dv =</span> <span class="st">&quot;rater_bias&quot;</span>, <span class="dt">id =</span> <span class="st">&quot;rater_id&quot;</span>, </a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">                    <span class="dt">seed =</span> <span class="dv">101</span>, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="02_aggregate_files/figure-html/unnamed-chunk-8-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 2.2: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>New we can get each rater to estimate the height of each woman. Their estimate is the woman’s actual height, plus the rater’s bias, plus some error (sampled from a normal distribution with a mean of 0 and an SD of 4 cm, since estimating height is hard).</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">  <span class="dt">rater_id =</span> rater<span class="op">$</span>rater_id,</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">  <span class="dt">stim_id =</span> stim<span class="op">$</span>stim_id</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"><span class="st">  </span><span class="kw">left_join</span>(rater, <span class="dt">by =</span> <span class="st">&quot;rater_id&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-6" data-line-number="6"><span class="st">  </span><span class="kw">left_join</span>(stim, <span class="dt">by =</span> <span class="st">&quot;stim_id&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb43-8" data-line-number="8">    <span class="dt">error =</span> <span class="kw">rnorm</span>(<span class="kw">nrow</span>(.), <span class="dv">0</span>, <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb43-9" data-line-number="9">    <span class="dt">estimate =</span> height <span class="op">+</span><span class="st"> </span>rater_bias <span class="op">+</span><span class="st"> </span>error</a>
+<a class="sourceLine" id="cb43-10" data-line-number="10">  )</a></code></pre></div>
+</div>
+<div id="aggregating-by-stimuli" class="section level3">
+<h3><span class="header-section-number">2.0.2</span> Aggregating by stimuli</h3>
+<p>You can aggregate by stimuli, that is, average the 20 raters’ estimate for each stimulus. You now have 40 mean estimates that are fairly well-correlated with the women’s actual heights.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">dat_agg_by_stim &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(stim_id, birthday, height) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_estimate =</span> <span class="kw">mean</span>(estimate))</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="02_aggregate_files/figure-html/unnamed-chunk-11-1.png" alt="**CAPTION THIS FIGURE!!**" width="100%" />
+<p class="caption">
+Figure 2.3: <strong>CAPTION THIS FIGURE!!</strong>
+</p>
+</div>
+<p>You get pretty much the same result when you compare these mean estimates between the groups of women with odd and even birthdays.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">t.test</span>(dat_agg_by_stim<span class="op">$</span>mean_estimate <span class="op">~</span><span class="st"> </span>dat_agg_by_stim<span class="op">$</span>birthday)</a></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  dat_agg_by_stim$mean_estimate by dat_agg_by_stim$birthday
+## t = 1.7225, df = 32.893, p-value = 0.09436
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.5794833  6.9732793
+## sample estimates:
+##  mean in group odd mean in group even 
+##           157.4442           154.2473</code></pre>
+</div>
+<div id="aggregating-by-raters" class="section level3">
+<h3><span class="header-section-number">2.0.3</span> Aggregating by raters</h3>
+<p>Alternatively, you can aggregate by raters, that is, average the 20 odd-group estimates and 20 even-group estimates for each rater. Now raters are your unit of analysis, so you’ve increased your power by having 20 raters and a within-subject design (each rater estimates heights for both odd- and even-birthday groups).</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">dat_agg_by_rater &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(rater_id, birthday) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_estimate =</span> <span class="kw">mean</span>(estimate)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb47-4" data-line-number="4"><span class="st">  </span><span class="kw">spread</span>(birthday, mean_estimate)</a>
+<a class="sourceLine" id="cb47-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb47-6" data-line-number="6"><span class="kw">t.test</span>(dat_agg_by_rater<span class="op">$</span>odd, dat_agg_by_rater<span class="op">$</span>even, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  dat_agg_by_rater$odd and dat_agg_by_rater$even
+## t = 10.572, df = 19, p-value = 2.131e-09
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.564008 3.829787
+## sample estimates:
+## mean of the differences 
+##                3.196898</code></pre>
+<p>Now the difference between the odd- and even-birthday groups is highly significant! What’s going is that you now have a relatively accurate estimate of the difference between the 20 women in the odd-birthday group and the 20 women in the even-birthday group. Since raters are the unit of analysis, this effect is likely to generalise to the larger population of potential raters, but only when they are rating <strong>these exact stimuli</strong>. Your conclusions cannot generalise beyond the stimulus set used here.</p>
+<p>While this seems like an obvious problem when the question is whether Armenian women with odd birthdays are taller or shorter than Armenian women with even birthdays, the problem is not so obvious for other questions, like whether boxers who won their last match have more masculine faces than boxers who lost their last match. The point of this tutorial isn’t to call out any particular studies (I’ve certainly done this wrong myself plenty of times in the past), but to illustrate the enormous problem with this method and to explain the solution.</p>
+</div>
+<div id="mixed-effect-model" class="section level3">
+<h3><span class="header-section-number">2.0.4</span> Mixed Effect Model</h3>
+<p>In the particular case above, we’re only interested in the between-stimulus main effect of birthday oddness. Therefore, aggregating by stimuli doesn’t inflate your false positive rate, while aggregating by rater does. However, other designs might have increased false positives for aggregating by stimuli but not by rater, or when aggregating by either.</p>
+<p>A mixed effects model avoids the problems of aggregation completely by modelling random variation for both the stimuli and raters, as well as random variation in the size of within-group effects. You can generalise the conclusions of a mixed effects model to both the population of raters and the population of stimuli. (I <a href="https://debruine.github.io/posts/coding-schemes/">effect code</a> the <code>birthday</code> variable to make interpretation of the effects easier).</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># effect-code birthday</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">dat<span class="op">$</span>birthday.e &lt;-<span class="st"> </span><span class="kw">recode</span>(dat<span class="op">$</span>birthday, <span class="st">&quot;odd&quot;</span> =<span class="st"> </span><span class="fl">0.5</span>, <span class="st">&quot;even&quot;</span> =<span class="st"> </span><span class="fl">-0.5</span>)</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">mod &lt;-<span class="st"> </span><span class="kw">lmer</span>(estimate <span class="op">~</span><span class="st"> </span>birthday.e <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="st">              </span><span class="co"># random slope for effect of birthday, random intercept for rater bias</span></a>
+<a class="sourceLine" id="cb49-6" data-line-number="6"><span class="st">              </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>birthday.e <span class="op">|</span><span class="st"> </span>rater_id) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-7" data-line-number="7"><span class="st">              </span><span class="co"># random intercept for variation in stim height</span></a>
+<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="st">              </span>(<span class="dv">1</span> <span class="op">|</span><span class="st"> </span>stim_id), </a>
+<a class="sourceLine" id="cb49-9" data-line-number="9">            <span class="dt">data =</span> dat)</a>
+<a class="sourceLine" id="cb49-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb49-11" data-line-number="11"><span class="kw">summary</span>(mod)</a></code></pre></div>
+<pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
+## lmerModLmerTest]
+## Formula: estimate ~ birthday.e + (1 + birthday.e | rater_id) + (1 | stim_id)
+##    Data: dat
+## 
+## REML criterion at convergence: 4663.9
+## 
+## Scaled residuals: 
+##      Min       1Q   Median       3Q      Max 
+## -2.81564 -0.65108  0.01132  0.67334  2.57077 
+## 
+## Random effects:
+##  Groups   Name        Variance Std.Dev. Corr 
+##  stim_id  (Intercept) 33.6592  5.8017        
+##  rater_id (Intercept)  3.0802  1.7551        
+##           birthday.e   0.2528  0.5028   -0.55
+##  Residual             15.7552  3.9693        
+## Number of obs: 800, groups:  stim_id, 40; rater_id, 20
+## 
+## Fixed effects:
+##             Estimate Std. Error      df t value Pr(&gt;|t|)    
+## (Intercept)  155.846      1.008  48.827 154.676   &lt;2e-16 ***
+## birthday.e     3.197      1.859  38.221   1.719   0.0936 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##            (Intr)
+## birthday.e -0.013</code></pre>
+<p>The estimate for <code>(Intercept)</code> is just the mean height estimate (155.85 cm) and the estimate for <code>birthday.e</code> is the mean difference between the odd and even birthday groups (3.2 cm).</p>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sim-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

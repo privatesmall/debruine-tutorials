@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>D Set up RStudio | Tutorials</title>
+  <meta name="description" content="Tutorial materials">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="D Set up RStudio | Tutorials" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial materials" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="D Set up RStudio | Tutorials" />
+  
+  <meta name="twitter:description" content="Tutorial materials" />
+  
+
+<meta name="author" content="Lisa DeBruine">
+
+
+<meta name="date" content="2019-03-24">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="get-a-github-account.html">
+<link rel="next" href="pipes.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html"><i class="fa fa-check"></i><b>1</b> Your first R package with unit tests</a><ul>
+<li class="chapter" data-level="1.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#setting-up"><i class="fa fa-check"></i><b>1.2</b> Setting Up</a></li>
+<li class="chapter" data-level="1.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#create-your-r-package"><i class="fa fa-check"></i><b>1.3</b> Create your R package</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#edit-the-description-file"><i class="fa fa-check"></i><b>1.3.1</b> Edit the DESCRIPTION file</a></li>
+<li class="chapter" data-level="1.3.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#create-a-license"><i class="fa fa-check"></i><b>1.3.2</b> Create a LICENSE</a></li>
+<li class="chapter" data-level="1.3.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#create-a-readme"><i class="fa fa-check"></i><b>1.3.3</b> Create a README</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#creating-a-function"><i class="fa fa-check"></i><b>1.4</b> Creating a function</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#template-function"><i class="fa fa-check"></i><b>1.4.1</b> Template function</a></li>
+<li class="chapter" data-level="1.4.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#edit-the-function"><i class="fa fa-check"></i><b>1.4.2</b> Edit the function</a></li>
+<li class="chapter" data-level="1.4.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#imports"><i class="fa fa-check"></i><b>1.4.3</b> Imports</a></li>
+<li class="chapter" data-level="1.4.4" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#documentation"><i class="fa fa-check"></i><b>1.4.4</b> Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#build-your-package"><i class="fa fa-check"></i><b>1.5</b> Build your package</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#check"><i class="fa fa-check"></i><b>1.5.1</b> Check</a></li>
+<li class="chapter" data-level="1.5.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#build"><i class="fa fa-check"></i><b>1.5.2</b> Build</a></li>
+<li class="chapter" data-level="1.5.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#install"><i class="fa fa-check"></i><b>1.5.3</b> Install</a></li>
+<li class="chapter" data-level="1.5.4" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#test"><i class="fa fa-check"></i><b>1.5.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#error-checking"><i class="fa fa-check"></i><b>1.6</b> Error checking</a></li>
+<li class="chapter" data-level="1.7" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#unit-tests"><i class="fa fa-check"></i><b>1.7</b> Unit tests</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#setup"><i class="fa fa-check"></i><b>1.7.1</b> Setup</a></li>
+<li class="chapter" data-level="1.7.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#new-unit-tests"><i class="fa fa-check"></i><b>1.7.2</b> New unit tests</a></li>
+<li class="chapter" data-level="1.7.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#run-all-tests"><i class="fa fa-check"></i><b>1.7.3</b> Run all tests</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#share-your-package"><i class="fa fa-check"></i><b>1.8</b> Share your package</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#git-on-rstudio"><i class="fa fa-check"></i><b>1.8.1</b> Git on RStudio</a></li>
+<li class="chapter" data-level="1.8.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#set-up-git-for-this-project"><i class="fa fa-check"></i><b>1.8.2</b> Set up git for this project</a></li>
+<li class="chapter" data-level="1.8.3" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#github-access-token"><i class="fa fa-check"></i><b>1.8.3</b> GitHub access token</a></li>
+<li class="chapter" data-level="1.8.4" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#make-a-new-github-repository"><i class="fa fa-check"></i><b>1.8.4</b> Make a new GitHub repository</a></li>
+<li class="chapter" data-level="1.8.5" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#install-your-package-from-github"><i class="fa fa-check"></i><b>1.8.5</b> Install your package from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#further-resources"><i class="fa fa-check"></i><b>1.9</b> Further resources</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#workflow"><i class="fa fa-check"></i><b>1.9.1</b> Workflow</a></li>
+<li class="chapter" data-level="1.9.2" data-path="your-first-r-package-with-unit-tests.html"><a href="your-first-r-package-with-unit-tests.html#the-full-report_p-function"><i class="fa fa-check"></i><b>1.9.2</b> The full <code>report_p</code> function</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="git-and-github.html"><a href="git-and-github.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a></li>
+<li class="chapter" data-level="C" data-path="get-a-github-account.html"><a href="get-a-github-account.html"><i class="fa fa-check"></i><b>C</b> Get a <a href="https://github.com/">GitHub</a> account</a><ul>
+<li class="chapter" data-level="C.1" data-path="get-a-github-account.html"><a href="get-a-github-account.html#choose-a-username"><i class="fa fa-check"></i><b>C.1</b> <input type="checkbox"> Choose a username</a></li>
+<li class="chapter" data-level="C.2" data-path="get-a-github-account.html"><a href="get-a-github-account.html#create-a-new-repository"><i class="fa fa-check"></i><b>C.2</b> <input type="checkbox"> Create a <a href="https://github.com/new">new repository</a></a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html"><i class="fa fa-check"></i><b>D</b> Set up RStudio</a><ul>
+<li class="chapter" data-level="D.1" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#r-rstudio-and-git"><i class="fa fa-check"></i><b>D.1</b> <input type="checkbox"> R, RStudio, and git</a><ul>
+<li class="chapter" data-level="D.1.1" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#install-git"><i class="fa fa-check"></i><b>D.1.1</b> Install git</a></li>
+<li class="chapter" data-level="D.1.2" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>D.1.2</b> Enable version control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#set-your-github-info"><i class="fa fa-check"></i><b>D.2</b> <input type="checkbox"> Set your GitHub info</a></li>
+<li class="chapter" data-level="D.3" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>D.3</b> <input type="checkbox"> Create an SSH Key on RStudio</a><ul>
+<li class="chapter" data-level="D.3.1" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#go-to-global-options...-from-the-tools-menu"><i class="fa fa-check"></i><b>D.3.1</b> Go to <code>Global Options...</code> from the <code>Tools</code> menu</a></li>
+<li class="chapter" data-level="D.3.2" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#click-create-rsa-key...-and-enter-a-passphrase"><i class="fa fa-check"></i><b>D.3.2</b> Click <a class="btn btn-default btn-xs">Create RSA Key...</a> and enter a passphrase</a></li>
+<li class="chapter" data-level="D.3.3" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#click-on-view-public-key-and-copy-the-contents-of-the-box"><i class="fa fa-check"></i><b>D.3.3</b> Click on <code>View public key</code> and copy the contents of the box</a></li>
+</ul></li>
+<li class="chapter" data-level="D.4" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>D.4</b> <input type="checkbox"> Create an SSH Key on GitHub</a><ul>
+<li class="chapter" data-level="D.4.1" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#go-to-github-settings-ssh-and-gpg-keys"><i class="fa fa-check"></i><b>D.4.1</b> Go to <a href="https://github.com/settings/keys">GitHub &gt; Settings &gt; SSH and GPG keys</a></a></li>
+<li class="chapter" data-level="D.4.2" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#click-new-ssh-key"><i class="fa fa-check"></i><b>D.4.2</b> Click <a class="btn btn-success btn-xs">New SSH Key</a></a></li>
+<li class="chapter" data-level="D.4.3" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#put-rstudio-server-as-the-title-or-my-computer-name-if-on-your-own-computer"><i class="fa fa-check"></i><b>D.4.3</b> Put <code>RStudio server</code> as the title (or <code>My Computer Name</code> if on your own computer)</a></li>
+<li class="chapter" data-level="D.4.4" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#paste-your-public-key-into-the-key-box"><i class="fa fa-check"></i><b>D.4.4</b> Paste your public key into the <code>Key</code> box</a></li>
+<li class="chapter" data-level="D.4.5" data-path="set-up-rstudio.html"><a href="set-up-rstudio.html#click-add-ssh-key"><i class="fa fa-check"></i><b>D.4.5</b> Click <a class="btn btn-success btn-xs">Add SSH key</a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>E</b> Pipes</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="set-up-rstudio" class="section level1">
+<h1><span class="header-section-number">D</span> Set up RStudio</h1>
+<div id="r-rstudio-and-git" class="section level2">
+<h2><span class="header-section-number">D.1</span> <input type="checkbox"> R, RStudio, and git</h2>
+<p>If you are a UofG INP staff/student, you can access the <a href="http://rstudio1.psy.gla.ac.uk">Glasgow Psychology RStudio</a> site and skip the rest of this step.</p>
+<p>If you are working from your own computer, follow the next 2 sub-steps:</p>
+<div id="install-git" class="section level3">
+<h3><span class="header-section-number">D.1.1</span> Install git</h3>
+<p>You can check if git is already installed on your computer by going to <code>Shell...</code> under the <code>Tools</code> menu (or just open a terminal window) and typing <code>which git</code>. If you get an answer like <code>/usr/local/bin/git</code> then git is already installed. If not, <a href="https://gist.github.com/derhuerst/1b15ff4652a867391f03">install git</a> and then use <code>which git</code> to check where it is installed.</p>
+</div>
+<div id="enable-version-control-in-rstudio" class="section level3">
+<h3><span class="header-section-number">D.1.2</span> Enable version control in RStudio</h3>
+<p>Go to <code>Global Options...</code> from the <code>Tools</code> menu and set the location of your Git executable to the location from the previous step.</p>
+<div class="figure">
+<img src="images/git_path.png" />
+
+</div>
+</div>
+</div>
+<div id="set-your-github-info" class="section level2">
+<h2><span class="header-section-number">D.2</span> <input type="checkbox"> Set your GitHub info</h2>
+<p>Run <code>usethis::edit_git_config()</code> in the console pane; it will open a file called <code>.gitconfig</code>. Replace <code>GITHUB_EMAIL</code> with the email address you used for github and <code>GITHUB_USERNAME</code> with your github username.</p>
+<pre><code>[user]
+    email = GITHUB_EMAIL
+    name = GITHUB_USERNAME</code></pre>
+<div class="warning">
+<p>
+You can skip the rest of the steps if you are using your own computer because you can use <strong><code>https</code></strong> to access github. If you are using an RStudio server or just want to use <strong><code>SSH</code></strong>, follow the steps below.
+</p>
+</div>
+</div>
+<div id="create-an-ssh-key-on-rstudio" class="section level2">
+<h2><span class="header-section-number">D.3</span> <input type="checkbox"> Create an SSH Key on RStudio</h2>
+<div id="go-to-global-options...-from-the-tools-menu" class="section level3">
+<h3><span class="header-section-number">D.3.1</span> Go to <code>Global Options...</code> from the <code>Tools</code> menu</h3>
+<div class="figure">
+<img src="images/global_options.png" />
+
+</div>
+</div>
+<div id="click-create-rsa-key...-and-enter-a-passphrase" class="section level3">
+<h3><span class="header-section-number">D.3.2</span> Click <a class="btn btn-default btn-xs">Create RSA Key...</a> and enter a passphrase</h3>
+<div class="figure">
+<img src="images/git_options.png" />
+
+</div>
+</div>
+<div id="click-on-view-public-key-and-copy-the-contents-of-the-box" class="section level3">
+<h3><span class="header-section-number">D.3.3</span> Click on <code>View public key</code> and copy the contents of the box</h3>
+</div>
+</div>
+<div id="create-an-ssh-key-on-github" class="section level2">
+<h2><span class="header-section-number">D.4</span> <input type="checkbox"> Create an SSH Key on GitHub</h2>
+<div id="go-to-github-settings-ssh-and-gpg-keys" class="section level3">
+<h3><span class="header-section-number">D.4.1</span> Go to <a href="https://github.com/settings/keys">GitHub &gt; Settings &gt; SSH and GPG keys</a></h3>
+</div>
+<div id="click-new-ssh-key" class="section level3">
+<h3><span class="header-section-number">D.4.2</span> Click <a class="btn btn-success btn-xs">New SSH Key</a></h3>
+</div>
+<div id="put-rstudio-server-as-the-title-or-my-computer-name-if-on-your-own-computer" class="section level3">
+<h3><span class="header-section-number">D.4.3</span> Put <code>RStudio server</code> as the title (or <code>My Computer Name</code> if on your own computer)</h3>
+</div>
+<div id="paste-your-public-key-into-the-key-box" class="section level3">
+<h3><span class="header-section-number">D.4.4</span> Paste your public key into the <code>Key</code> box</h3>
+</div>
+<div id="click-add-ssh-key" class="section level3">
+<h3><span class="header-section-number">D.4.5</span> Click <a class="btn btn-success btn-xs">Add SSH key</a></h3>
+<div class="figure">
+<img src="images/github_ssh_key.png" />
+
+</div>
+
+</div>
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="get-a-github-account.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pipes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

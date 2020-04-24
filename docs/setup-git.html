@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>B Git and GitHub | Tutorials</title>
+  <meta name="description" content="Tutorial materials" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="B Git and GitHub | Tutorials" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Tutorial materials" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="B Git and GitHub | Tutorials" />
+  
+  <meta name="twitter:description" content="Tutorial materials" />
+  
+
+<meta name="author" content="Lisa DeBruine" />
+
+
+<meta name="date" content="2019-12-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="installing-r.html"/>
+<link rel="next" href="pipes.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="include/psyteachr.css" type="text/css" />
+<link rel="stylesheet" href="include/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>1</b> R package with unit tests</a><ul>
+<li class="chapter" data-level="1.1" data-path="packages.html"><a href="packages.html#learning-objectives"><i class="fa fa-check"></i><b>1.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="1.2" data-path="packages.html"><a href="packages.html#setting-up"><i class="fa fa-check"></i><b>1.2</b> Setting up</a></li>
+<li class="chapter" data-level="1.3" data-path="packages.html"><a href="packages.html#create-your-r-package"><i class="fa fa-check"></i><b>1.3</b> Create your R package</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="packages.html"><a href="packages.html#edit-the-description-file"><i class="fa fa-check"></i><b>1.3.1</b> Edit the DESCRIPTION file</a></li>
+<li class="chapter" data-level="1.3.2" data-path="packages.html"><a href="packages.html#create-a-license"><i class="fa fa-check"></i><b>1.3.2</b> Create a LICENSE</a></li>
+<li class="chapter" data-level="1.3.3" data-path="packages.html"><a href="packages.html#create-a-readme"><i class="fa fa-check"></i><b>1.3.3</b> Create a README</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="packages.html"><a href="packages.html#creating-a-function"><i class="fa fa-check"></i><b>1.4</b> Creating a function</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="packages.html"><a href="packages.html#template-function"><i class="fa fa-check"></i><b>1.4.1</b> Template function</a></li>
+<li class="chapter" data-level="1.4.2" data-path="packages.html"><a href="packages.html#edit-the-function"><i class="fa fa-check"></i><b>1.4.2</b> Edit the function</a></li>
+<li class="chapter" data-level="1.4.3" data-path="packages.html"><a href="packages.html#documentation"><i class="fa fa-check"></i><b>1.4.3</b> Documentation</a></li>
+<li class="chapter" data-level="1.4.4" data-path="packages.html"><a href="packages.html#imports"><i class="fa fa-check"></i><b>1.4.4</b> Imports</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="packages.html"><a href="packages.html#build-your-package"><i class="fa fa-check"></i><b>1.5</b> Build your package</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="packages.html"><a href="packages.html#check"><i class="fa fa-check"></i><b>1.5.1</b> Check</a></li>
+<li class="chapter" data-level="1.5.2" data-path="packages.html"><a href="packages.html#build"><i class="fa fa-check"></i><b>1.5.2</b> Build</a></li>
+<li class="chapter" data-level="1.5.3" data-path="packages.html"><a href="packages.html#install"><i class="fa fa-check"></i><b>1.5.3</b> Install</a></li>
+<li class="chapter" data-level="1.5.4" data-path="packages.html"><a href="packages.html#test"><i class="fa fa-check"></i><b>1.5.4</b> Test</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="packages.html"><a href="packages.html#error-checking"><i class="fa fa-check"></i><b>1.6</b> Error checking</a></li>
+<li class="chapter" data-level="1.7" data-path="packages.html"><a href="packages.html#unit-tests"><i class="fa fa-check"></i><b>1.7</b> Unit tests</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="packages.html"><a href="packages.html#setup"><i class="fa fa-check"></i><b>1.7.1</b> Setup</a></li>
+<li class="chapter" data-level="1.7.2" data-path="packages.html"><a href="packages.html#new-unit-tests"><i class="fa fa-check"></i><b>1.7.2</b> New unit tests</a></li>
+<li class="chapter" data-level="1.7.3" data-path="packages.html"><a href="packages.html#run-all-tests"><i class="fa fa-check"></i><b>1.7.3</b> Run all tests</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="packages.html"><a href="packages.html#documentation-1"><i class="fa fa-check"></i><b>1.8</b> Documentation</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="packages.html"><a href="packages.html#vignettes"><i class="fa fa-check"></i><b>1.8.1</b> Vignettes</a></li>
+<li class="chapter" data-level="1.8.2" data-path="packages.html"><a href="packages.html#pkgdown"><i class="fa fa-check"></i><b>1.8.2</b> pkgdown</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="packages.html"><a href="packages.html#share-your-package"><i class="fa fa-check"></i><b>1.9</b> Share your package</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="packages.html"><a href="packages.html#git-on-rstudio"><i class="fa fa-check"></i><b>1.9.1</b> Git on RStudio</a></li>
+<li class="chapter" data-level="1.9.2" data-path="packages.html"><a href="packages.html#set-up-git-for-this-project"><i class="fa fa-check"></i><b>1.9.2</b> Set up git for this project</a></li>
+<li class="chapter" data-level="1.9.3" data-path="packages.html"><a href="packages.html#github-access-token"><i class="fa fa-check"></i><b>1.9.3</b> GitHub access token</a></li>
+<li class="chapter" data-level="1.9.4" data-path="packages.html"><a href="packages.html#make-a-new-github-repository"><i class="fa fa-check"></i><b>1.9.4</b> Make a new GitHub repository</a></li>
+<li class="chapter" data-level="1.9.5" data-path="packages.html"><a href="packages.html#set-up-website"><i class="fa fa-check"></i><b>1.9.5</b> Set up website</a></li>
+<li class="chapter" data-level="1.9.6" data-path="packages.html"><a href="packages.html#install-your-package-from-github"><i class="fa fa-check"></i><b>1.9.6</b> Install your package from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="packages.html"><a href="packages.html#further-resources"><i class="fa fa-check"></i><b>1.10</b> Further resources</a><ul>
+<li class="chapter" data-level="1.10.1" data-path="packages.html"><a href="packages.html#workflow"><i class="fa fa-check"></i><b>1.10.1</b> Workflow</a></li>
+<li class="chapter" data-level="1.10.2" data-path="packages.html"><a href="packages.html#the-full-report_p-function"><i class="fa fa-check"></i><b>1.10.2</b> The full <code>report_p</code> function</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="packages.html"><a href="packages.html#glossary"><i class="fa fa-check"></i><b>1.11</b> Glossary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="aggregate.html"><a href="aggregate.html"><i class="fa fa-check"></i><b>2</b> What’s wrong with aggregating data?</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="aggregate.html"><a href="aggregate.html#measurement-with-error"><i class="fa fa-check"></i><b>2.0.1</b> Measurement with Error</a></li>
+<li class="chapter" data-level="2.0.2" data-path="aggregate.html"><a href="aggregate.html#aggregating-by-stimuli"><i class="fa fa-check"></i><b>2.0.2</b> Aggregating by stimuli</a></li>
+<li class="chapter" data-level="2.0.3" data-path="aggregate.html"><a href="aggregate.html#aggregating-by-raters"><i class="fa fa-check"></i><b>2.0.3</b> Aggregating by raters</a></li>
+<li class="chapter" data-level="2.0.4" data-path="aggregate.html"><a href="aggregate.html#mixed-effect-model"><i class="fa fa-check"></i><b>2.0.4</b> Mixed Effect Model</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="sim-data.html"><a href="sim-data.html"><i class="fa fa-check"></i><b>3</b> Simulating Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="sim-data.html"><a href="sim-data.html#independent-samples"><i class="fa fa-check"></i><b>3.1</b> Independent samples</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="sim-data.html"><a href="sim-data.html#ind-params"><i class="fa fa-check"></i><b>3.1.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.1.2" data-path="sim-data.html"><a href="sim-data.html#scores"><i class="fa fa-check"></i><b>3.1.2</b> Scores</a></li>
+<li class="chapter" data-level="3.1.3" data-path="sim-data.html"><a href="sim-data.html#check-your-data"><i class="fa fa-check"></i><b>3.1.3</b> Check your data</a></li>
+<li class="chapter" data-level="3.1.4" data-path="sim-data.html"><a href="sim-data.html#analysis"><i class="fa fa-check"></i><b>3.1.4</b> Analysis</a></li>
+<li class="chapter" data-level="3.1.5" data-path="sim-data.html"><a href="sim-data.html#function"><i class="fa fa-check"></i><b>3.1.5</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="sim-data.html"><a href="sim-data.html#paired-samples"><i class="fa fa-check"></i><b>3.2</b> Paired samples</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sim-data.html"><a href="sim-data.html#paired-params"><i class="fa fa-check"></i><b>3.2.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sim-data.html"><a href="sim-data.html#correlated-scores"><i class="fa fa-check"></i><b>3.2.2</b> Correlated Scores</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sim-data.html"><a href="sim-data.html#check-your-data-1"><i class="fa fa-check"></i><b>3.2.3</b> Check your data</a></li>
+<li class="chapter" data-level="3.2.4" data-path="sim-data.html"><a href="sim-data.html#analysis-1"><i class="fa fa-check"></i><b>3.2.4</b> Analysis</a></li>
+<li class="chapter" data-level="3.2.5" data-path="sim-data.html"><a href="sim-data.html#function-1"><i class="fa fa-check"></i><b>3.2.5</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sim-data.html"><a href="sim-data.html#intercept-model"><i class="fa fa-check"></i><b>3.3</b> Intercept model</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sim-data.html"><a href="sim-data.html#parameters"><i class="fa fa-check"></i><b>3.3.1</b> Parameters</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sim-data.html"><a href="sim-data.html#subject-intercepts"><i class="fa fa-check"></i><b>3.3.2</b> Subject intercepts</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sim-data.html"><a href="sim-data.html#observations"><i class="fa fa-check"></i><b>3.3.3</b> Observations</a></li>
+<li class="chapter" data-level="3.3.4" data-path="sim-data.html"><a href="sim-data.html#calculate-the-score"><i class="fa fa-check"></i><b>3.3.4</b> Calculate the score</a></li>
+<li class="chapter" data-level="3.3.5" data-path="sim-data.html"><a href="sim-data.html#analyses"><i class="fa fa-check"></i><b>3.3.5</b> Analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sim-data.html"><a href="sim-data.html#functions"><i class="fa fa-check"></i><b>3.4</b> Functions</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="sim-data.html"><a href="sim-data.html#distribution-to-intercept-specification"><i class="fa fa-check"></i><b>3.4.1</b> Distribution to intercept specification</a></li>
+<li class="chapter" data-level="3.4.2" data-path="sim-data.html"><a href="sim-data.html#intercept-to-distribution-specification"><i class="fa fa-check"></i><b>3.4.2</b> Intercept to distribution specification</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sim-lmer.html"><a href="sim-lmer.html"><i class="fa fa-check"></i><b>4</b> Simulating Mixed Effects</a><ul>
+<li class="chapter" data-level="4.1" data-path="sim-lmer.html"><a href="sim-lmer.html#setup-1"><i class="fa fa-check"></i><b>4.1</b> Setup</a></li>
+<li class="chapter" data-level="4.2" data-path="sim-lmer.html"><a href="sim-lmer.html#random-intercepts"><i class="fa fa-check"></i><b>4.2</b> Random intercepts</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-subjects"><i class="fa fa-check"></i><b>4.2.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.2.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-stimuli"><i class="fa fa-check"></i><b>4.2.2</b> Stimuli</a></li>
+<li class="chapter" data-level="4.2.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-trials"><i class="fa fa-check"></i><b>4.2.3</b> Trials</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-dv"><i class="fa fa-check"></i><b>4.3</b> Calculate DV</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="sim-lmer.html"><a href="sim-lmer.html#fixed-effects"><i class="fa fa-check"></i><b>4.3.1</b> Fixed effects</a></li>
+<li class="chapter" data-level="4.3.2" data-path="sim-lmer.html"><a href="sim-lmer.html#interactions"><i class="fa fa-check"></i><b>4.3.2</b> Interactions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-analysis"><i class="fa fa-check"></i><b>4.4</b> Analysis</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-sense-checks"><i class="fa fa-check"></i><b>4.4.1</b> Sense checks</a></li>
+<li class="chapter" data-level="4.4.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-ranef"><i class="fa fa-check"></i><b>4.4.2</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="sim-lmer.html"><a href="sim-lmer.html#rint-function"><i class="fa fa-check"></i><b>4.5</b> Function</a></li>
+<li class="chapter" data-level="4.6" data-path="sim-lmer.html"><a href="sim-lmer.html#random-slopes"><i class="fa fa-check"></i><b>4.6</b> Random slopes</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-subjects"><i class="fa fa-check"></i><b>4.6.1</b> Subjects</a></li>
+<li class="chapter" data-level="4.6.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-stimuli"><i class="fa fa-check"></i><b>4.6.2</b> Stimuli</a></li>
+<li class="chapter" data-level="4.6.3" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-trials"><i class="fa fa-check"></i><b>4.6.3</b> Trials</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-dv"><i class="fa fa-check"></i><b>4.7</b> Calculate DV</a></li>
+<li class="chapter" data-level="4.8" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-analysis"><i class="fa fa-check"></i><b>4.8</b> Analysis</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-sense-checks"><i class="fa fa-check"></i><b>4.8.1</b> Sense checks</a></li>
+<li class="chapter" data-level="4.8.2" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-ranef"><i class="fa fa-check"></i><b>4.8.2</b> Random effects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="sim-lmer.html"><a href="sim-lmer.html#rslope-function"><i class="fa fa-check"></i><b>4.9</b> Function</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="webpages.html"><a href="webpages.html"><i class="fa fa-check"></i><b>5</b> Webpages</a><ul>
+<li class="chapter" data-level="5.1" data-path="webpages.html"><a href="webpages.html#learning-objectives-1"><i class="fa fa-check"></i><b>5.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="5.2" data-path="webpages.html"><a href="webpages.html#webpage-create"><i class="fa fa-check"></i><b>5.2</b> Create a webpage</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="webpages.html"><a href="webpages.html#create-a-project"><i class="fa fa-check"></i><b>5.2.1</b> Create a project</a></li>
+<li class="chapter" data-level="5.2.2" data-path="webpages.html"><a href="webpages.html#site-header"><i class="fa fa-check"></i><b>5.2.2</b> Site header</a></li>
+<li class="chapter" data-level="5.2.3" data-path="webpages.html"><a href="webpages.html#site-script-only-for-gitlab"><i class="fa fa-check"></i><b>5.2.3</b> Site script (only for GitLab)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="webpages.html"><a href="webpages.html#main-page"><i class="fa fa-check"></i><b>5.2.4</b> Main page</a></li>
+<li class="chapter" data-level="5.2.5" data-path="webpages.html"><a href="webpages.html#render-the-site"><i class="fa fa-check"></i><b>5.2.5</b> Render the site</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="webpages.html"><a href="webpages.html#webpage-content"><i class="fa fa-check"></i><b>5.3</b> Add content</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="webpages.html"><a href="webpages.html#headings-and-paragraphs"><i class="fa fa-check"></i><b>5.3.1</b> Headings and paragraphs</a></li>
+<li class="chapter" data-level="5.3.2" data-path="webpages.html"><a href="webpages.html#links"><i class="fa fa-check"></i><b>5.3.2</b> Links</a></li>
+<li class="chapter" data-level="5.3.3" data-path="webpages.html"><a href="webpages.html#lists"><i class="fa fa-check"></i><b>5.3.3</b> Lists</a></li>
+<li class="chapter" data-level="5.3.4" data-path="webpages.html"><a href="webpages.html#images"><i class="fa fa-check"></i><b>5.3.4</b> Images</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="webpages.html"><a href="webpages.html#webpage-pages"><i class="fa fa-check"></i><b>5.4</b> Add pages</a></li>
+<li class="chapter" data-level="5.5" data-path="webpages.html"><a href="webpages.html#webpage-styles"><i class="fa fa-check"></i><b>5.5</b> Styles</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="webpages.html"><a href="webpages.html#change-the-theme"><i class="fa fa-check"></i><b>5.5.1</b> Change the theme</a></li>
+<li class="chapter" data-level="5.5.2" data-path="webpages.html"><a href="webpages.html#add-custom-styles"><i class="fa fa-check"></i><b>5.5.2</b> Add custom styles</a></li>
+<li class="chapter" data-level="5.5.3" data-path="webpages.html"><a href="webpages.html#change-global-fonts-and-colours"><i class="fa fa-check"></i><b>5.5.3</b> Change global fonts and colours</a></li>
+<li class="chapter" data-level="5.5.4" data-path="webpages.html"><a href="webpages.html#change-certain-elements"><i class="fa fa-check"></i><b>5.5.4</b> Change certain elements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="webpages.html"><a href="webpages.html#webpage-online"><i class="fa fa-check"></i><b>5.6</b> Put your webpage online</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="webpages.html"><a href="webpages.html#save-this-version-with-git"><i class="fa fa-check"></i><b>5.6.1</b> Save this version with git</a></li>
+<li class="chapter" data-level="5.6.2" data-path="webpages.html"><a href="webpages.html#github"><i class="fa fa-check"></i><b>5.6.2</b> GitHub</a></li>
+<li class="chapter" data-level="5.6.3" data-path="webpages.html"><a href="webpages.html#gitlab"><i class="fa fa-check"></i><b>5.6.3</b> GitLab</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>A</b> Installing <code>R</code></a><ul>
+<li class="chapter" data-level="A.1" data-path="installing-r.html"><a href="installing-r.html#installing-base-r"><i class="fa fa-check"></i><b>A.1</b> Installing Base R</a></li>
+<li class="chapter" data-level="A.2" data-path="installing-r.html"><a href="installing-r.html#installing-rstudio"><i class="fa fa-check"></i><b>A.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="A.3" data-path="installing-r.html"><a href="installing-r.html#installing-latex"><i class="fa fa-check"></i><b>A.3</b> Installing LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="setup-git.html"><a href="setup-git.html"><i class="fa fa-check"></i><b>B</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="B.1" data-path="setup-git.html"><a href="setup-git.html#get-a-github-account"><i class="fa fa-check"></i><b>B.1</b> Get a GitHub account</a></li>
+<li class="chapter" data-level="B.2" data-path="setup-git.html"><a href="setup-git.html#set-up-rstudio"><i class="fa fa-check"></i><b>B.2</b> Set up RStudio</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="setup-git.html"><a href="setup-git.html#install-git"><i class="fa fa-check"></i><b>B.2.1</b> Install git</a></li>
+<li class="chapter" data-level="B.2.2" data-path="setup-git.html"><a href="setup-git.html#enable-version-control-in-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Enable version control in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="setup-git.html"><a href="setup-git.html#github-info"><i class="fa fa-check"></i><b>B.3</b> Set your GitHub info</a></li>
+<li class="chapter" data-level="B.4" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-rstudio"><i class="fa fa-check"></i><b>B.4</b> Create an SSH Key on RStudio</a></li>
+<li class="chapter" data-level="B.5" data-path="setup-git.html"><a href="setup-git.html#create-an-ssh-key-on-github"><i class="fa fa-check"></i><b>B.5</b> Create an SSH Key on GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="pipes.html"><a href="pipes.html"><i class="fa fa-check"></i><b>C</b> Pipes</a></li>
+<li class="chapter" data-level="D" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>D</b> Symbols</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" 
+    target="blank"><img alt="Creative Commons License" 
+    style="border-width:0" 
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><li>
+<li><a href="https://psyteachr.github.io/" target="blank">PsyTeachR</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="setup-git" class="section level1">
+<h1><span class="header-section-number">B</span> Git and GitHub</h1>
+<p>There are many reasons to use version control. Git is one option and it is well-integrated into RStudio. GitHub is a free service to store your version controlled projects in the cloud and (optionally) share them with others.</p>
+<div id="get-a-github-account" class="section level2">
+<h2><span class="header-section-number">B.1</span> Get a GitHub account</h2>
+<p>Go to <a href="https://github.com/">GitHub</a> and create a new account.</p>
+<ul>
+<li>Make sure your username is professional</li>
+<li>Use an email address that you won’t lose access to (e.g., gmail)</li>
+</ul>
+</div>
+<div id="set-up-rstudio" class="section level2">
+<h2><span class="header-section-number">B.2</span> Set up RStudio</h2>
+<p>If you are a UofG INP staff/student, you can access the <a href="http://rstudio1.psy.gla.ac.uk">Glasgow Psychology RStudio</a> site and skip to <a href="setup-git.html#github-info">Set your GitHub info</a>.</p>
+<p>If you are working from your own computer, follow the next 2 sub-steps:</p>
+<div id="install-git" class="section level3">
+<h3><span class="header-section-number">B.2.1</span> Install git</h3>
+<p>You can check if git is already installed on your computer by going to <code>Shell...</code> under the <code>Tools</code> menu (or just open a terminal window) and typing <code>which git</code>. If you get an answer like <code>/usr/local/bin/git</code> then git is already installed. If not, <a href="https://gist.github.com/derhuerst/1b15ff4652a867391f03">install git</a> and then use <code>which git</code> to check where it is installed.</p>
+</div>
+<div id="enable-version-control-in-rstudio" class="section level3">
+<h3><span class="header-section-number">B.2.2</span> Enable version control in RStudio</h3>
+<p>Go to <code>Global Options...</code> from the <code>Tools</code> menu and set the location of your git executable to the location from the previous step.</p>
+<div class="figure" style="text-align: center"><span id="fig:git-path"></span>
+<img src="images/git_path.png" alt="Set the location of git" width="500px" />
+<p class="caption">
+Figure B.1: Set the location of git
+</p>
+</div>
+</div>
+</div>
+<div id="github-info" class="section level2">
+<h2><span class="header-section-number">B.3</span> Set your GitHub info</h2>
+<p>Run <code>usethis::edit_git_config()</code> in the console pane; it will open a file called <code>.gitconfig</code>. Replace <code>GITHUB_EMAIL</code> with the email address you used for github and <code>GITHUB_USERNAME</code> with your github username.</p>
+<pre><code>[user]
+    email = GITHUB_EMAIL
+    name = GITHUB_USERNAME</code></pre>
+<div class="warning">
+<p>
+You can skip the rest of the steps if you are using your own computer because you can use <strong><code>https</code></strong> to access github. If you are using an RStudio server or just want to use <strong><code>SSH</code></strong>, follow the steps below.
+</p>
+</div>
+</div>
+<div id="create-an-ssh-key-on-rstudio" class="section level2">
+<h2><span class="header-section-number">B.4</span> Create an SSH Key on RStudio</h2>
+<ol style="list-style-type: decimal">
+<li>Go to <code>Global Options...</code> from the <code>Tools</code> menu</li>
+<li>Click <strong><code>Create RSA Key...</code></strong> and enter a passphrase
+<div class="figure" style="text-align: center"><span id="fig:git-options"></span>
+<img src="images/git_options.png" alt="Global options" width="500px" />
+<p class="caption">
+Figure B.2: Global options
+</p>
+</div></li>
+<li>Click on <code>View public key</code> and copy the contents of the box</li>
+</ol>
+</div>
+<div id="create-an-ssh-key-on-github" class="section level2">
+<h2><span class="header-section-number">B.5</span> Create an SSH Key on GitHub</h2>
+<ol style="list-style-type: decimal">
+<li>Go to <a href="https://github.com/settings/keys">GitHub &gt; Settings &gt; SSH and GPG keys</a></li>
+<li>Click <strong><code>New SSH Key</code></strong></li>
+<li>Put <code>RStudio server</code> as the title (or <code>My Computer Name</code> if on your own computer)</li>
+<li>Paste your public key into the <code>Key</code> box</li>
+<li>Click <strong><code>Add SSH key</code></strong>
+<div class="figure" style="text-align: center"><span id="fig:github-key"></span>
+<img src="images/github_ssh_key.png" alt="Add SSH key" width="500px" />
+<p class="caption">
+Figure B.3: Add SSH key
+</p>
+</div></li>
+</ol>
+
+</div>
+</div>
+<div class="psyteachr_footer">
+  
+</div>
+<script>
+
+/* update total correct if #total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("correct").length + " of " +
+      document.getElementsByClassName("solveme").length + " correct";
+  }
+}
+
+/* solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "");
+  }
+  
+  if (my_answer !== "" & real_answers.includes(my_answer)) {
+    cl.add("correct");
+  } else {
+    cl.remove("correct");
+  }
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+  
+  /* set up solveme inputs */
+  var solveme = document.getElementsByClassName("solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off"); 
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+    
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+    
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="installing-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pipes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": {},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
